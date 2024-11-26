@@ -1,7 +1,18 @@
 import React from "react";
-import Candidate from "./Candidate";
+import QualifiedCandidate from "./QualifiedCandidate";
+import DropoutCandidate from "./DropoutCandidate";
+import { useData } from "../hooks/useData";
 
 const Candidates: React.FC = () => {
+    // Get the data array.
+    const data = useData();
+
+    // Extract relevant information from the data array.
+    const { first, second, dropouts, statistics } = data;
+
+    // Construct the array of qualified candidates.
+    const qualified = [first, second];
+
     return (
         <section id="controls" className="row">
             <div className="col-12 shadow controls-wrapper">
@@ -21,14 +32,11 @@ const Candidates: React.FC = () => {
                     </div>
 
                     <div className="section-description">
-                        Pe baza datelor încărcate{" "}
-                        <span className="total-votes-round-one">12312313</span>{" "}
-                        persoane au votat, iar candidații{" "}
-                        <span className="name">Nume Prenume</span> și{" "}
-                        <span className="name">Nume Prenume</span> vor fi
-                        selectați pentru turul doi. Alege mai jos cum estimezi
-                        că se vor împărți voturile în turul doi pentru fiecare
-                        candidat în parte.
+                        Pe baza ultimelor date de la ROAEP, <span className="total-votes-round-one">{statistics.roundOne}</span> persoane
+                        au votat în primul tur din {statistics.eligible} câte erau eligibile. În urma acestui vot,
+                        iar candidații <span className="name">{first.name}</span> și <span className="name">{second.name}</span> vor
+                        fi selectați pentru turul doi. Alege mai jos cum preconizezi că se vor împărți voturile în turul doi
+                        pentru fiecare candidat în parte.
                     </div>
                 </div>
 
@@ -36,251 +44,32 @@ const Candidates: React.FC = () => {
                     <div className="col-12">Candidații Din Turul Doi</div>
                 </div>
 
-                <div className="row align-items-top control candidate justify-content-between">
-                    <div className="b col-3 candidate-information">
-                        <div className="row identification">
-                            <div className="col-12">
-                                <span className="annotation">🇷🇺</span>
-                                <span className="name">Nume Prenume</span>
-                            </div>
-                        </div>
-
-                        <div className="row votes">
-                            <div className="col-12">
-                                <span className="count">2306090</span> voturi (
-                                <span className="percentage">25%</span>)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-slider">
-                        <div className="form-group">
-                            <label htmlFor="candidateRange1">
-                                Câte voturi crezi că va reține candidatul?
-                            </label>
-                            <input
-                                type="range"
-                                className="form-range"
-                                id="candidateRange1"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-receiver">
-                        <div className="row">
-                            <div className="col-12 feedback">
-                                <span className="name gain">Nume Prenume</span>{" "}
-                                va retine <span className="gain">23%</span> din
-                                voturi (<span className="gain">20123122</span>),
-                                iar restul de <span className="loss">77%</span>{" "}
-                                (<span className="loss">21323123</span>) vor
-                                merge către
-                                <span className="name loss">Nume Prenume</span>.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row align-items-top control candidate justify-content-between">
-                    <div className="b col-3 candidate-information">
-                        <div className="row identification">
-                            <div className="col-12">
-                                <span className="annotation">🇷🇴</span>
-                                <span className="name">Nume Prenume</span>
-                            </div>
-                        </div>
-
-                        <div className="row votes">
-                            <div className="col-12">
-                                <span className="count">2306090</span> voturi (
-                                <span className="percentage">25%</span>)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-slider">
-                        <div className="form-group">
-                            <label htmlFor="candidateRange1">
-                                Câte voturi crezi că va reține candidatul?
-                            </label>
-                            <input
-                                type="range"
-                                className="form-range"
-                                id="candidateRange1"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-receiver">
-                        <div className="row">
-                            <div className="col-12 feedback">
-                                <span className="name gain">Nume Prenume</span>{" "}
-                                va retine <span className="gain">23%</span> din
-                                voturi (<span className="gain">20123122</span>),
-                                iar restul de <span className="loss">77%</span>{" "}
-                                (<span className="loss">21323123</span>) vor
-                                merge către
-                                <span className="name loss">Nume Prenume</span>.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/* Render the qualified candidates. */}
+                {qualified.map((candidate) => (
+                    <QualifiedCandidate
+                        key={candidate.id}
+                        id={candidate.id}
+                        name={candidate.name}
+                        votes={candidate.votes}
+                        percentage={candidate.percentage}
+                    />
+                ))}
 
                 <div className="b row section-subtitle">
                     <div className="col-12">Candidații Eliminați</div>
                 </div>
 
-                <Candidate />
+                {/* Render the dropouts. */}
 
-                <div className="row align-items-top control candidate justify-content-between">
-                    <div className="b col-3 candidate-information">
-                        <div className="row identification">
-                            <div className="col-12">
-                                <span className="name">Nume Prenume</span>
-                            </div>
-                        </div>
-
-                        <div className="row votes">
-                            <div className="col-12">
-                                <span className="count">2306090</span> voturi (
-                                <span className="percentage">25%</span>)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-slider">
-                        <div className="form-group">
-                            <label htmlFor="candidateRange1">
-                                Cate voturi ale candidatului...
-                            </label>
-                            <input
-                                type="range"
-                                className="form-range"
-                                id="candidateRange1"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-receiver">
-                        <div className="form-group">
-                            <label
-                                className="control-label"
-                                id="selection-label"
-                                htmlFor="selection-selectized"
-                            >
-                                ...vor merge catre cine?
-                            </label>
-                            <select
-                                className="form-select"
-                                aria-label="Default select example"
-                            >
-                                <option selected>Selecteaza candidatul</option>
-                                <option value="1">Nume Prenume</option>
-                                <option value="2">Nume Prenume</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row align-items-top control candidate justify-content-between">
-                    <div className="b col-3 candidate-information">
-                        <div className="row identification">
-                            <div className="col-12">
-                                <span className="name">Nume Prenume</span>
-                            </div>
-                        </div>
-
-                        <div className="row votes">
-                            <div className="col-12">
-                                <span className="count">2306090</span> voturi (
-                                <span className="percentage">25%</span>)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-slider">
-                        <div className="form-group">
-                            <label htmlFor="candidateRange1">
-                                Cate voturi ale candidatului...
-                            </label>
-                            <input
-                                type="range"
-                                className="form-range"
-                                id="candidateRange1"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-receiver">
-                        <div className="form-group">
-                            <label
-                                className="control-label"
-                                id="selection-label"
-                                htmlFor="selection-selectized"
-                            >
-                                ...vor merge catre cine?
-                            </label>
-                            <select
-                                className="form-select"
-                                aria-label="Default select example"
-                            >
-                                <option selected>Selecteaza candidatul</option>
-                                <option value="1">Nume Prenume</option>
-                                <option value="2">Nume Prenume</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row align-items-top control candidate justify-content-between">
-                    <div className="b col-3 candidate-information">
-                        <div className="row identification">
-                            <div className="col-12">
-                                <span className="name">Nume Prenume</span>
-                            </div>
-                        </div>
-
-                        <div className="row votes">
-                            <div className="col-12">
-                                <span className="count">2306090</span> voturi (
-                                <span className="percentage">25%</span>)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-slider">
-                        <div className="form-group">
-                            <label htmlFor="candidateRange1">
-                                Cate voturi ale candidatului...
-                            </label>
-                            <input
-                                type="range"
-                                className="form-range"
-                                id="candidateRange1"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="b col-4 candidate-receiver">
-                        <div className="form-group">
-                            <label
-                                className="control-label"
-                                id="selection-label"
-                                htmlFor="selection-selectized"
-                            >
-                                ...vor merge catre cine?
-                            </label>
-                            <select
-                                className="form-select"
-                                aria-label="Default select example"
-                            >
-                                <option selected>Selecteaza candidatul</option>
-                                <option value="1">Nume Prenume</option>
-                                <option value="2">Nume Prenume</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                {dropouts.map((candidate) => (
+                    <DropoutCandidate
+                        key={candidate.id}
+                        id={candidate.id}
+                        name={candidate.name}
+                        votes={candidate.votes}
+                        percentage={candidate.percentage}
+                    />
+                ))}
             </div>
         </section>
     );
