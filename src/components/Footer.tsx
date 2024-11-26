@@ -4,9 +4,7 @@ const Footer: React.FC = () => {
     return (
         <footer className="row">
             <div className="bg col text-center">
-                Made with
-                <span className="heart">&#128148;</span>
-                by{" "}
+                Made with <span className="heart">&#128148;</span> by {""}
                 <a
                     className="text-decoration-none"
                     href="https://mihaiconstantin.com"
@@ -14,7 +12,7 @@ const Footer: React.FC = () => {
                 >
                     Mihai Constantin
                 </a>{" "}
-                and
+                and {" "}
                 <a
                     className="text-decoration-none"
                     href="mailto:ionut.badea@yazee.me"
