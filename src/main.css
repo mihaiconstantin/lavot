@@ -2,6 +2,10 @@
 
 /* #region Development styles. */
 
+.b {
+    /* border: 1px solid black; */
+}
+
 /* #endregion */
 
 
@@ -244,8 +248,3 @@ footer .github a {
 }
 
 /* #endregion */
-
-
-.b {
-    /* border: 1px solid blue; */
-}
