@@ -1,3 +1,4 @@
+// The data from `ROAEP` as of November 25, 2024.
 export const useData = () => {
     return {
         first: {
@@ -12,9 +13,9 @@ export const useData = () => {
             votes: 1772500,
             percentage: 19.18,
         },
-        voters: {
+        statistics: {
             eligible: 18008480,
-            "round-one": 9242186,
+            roundOne: 9242186,
         },
         dropouts: [
             {
