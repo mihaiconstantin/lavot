@@ -13,10 +13,10 @@ export const useEstimates = (input: InputProps) => {
     const { first, second, dropouts } = data;
 
     // Extract the variables from the user input object.
-    const { from, to } = input;
+    const { from, to, value } = input;
 
     // Convert the value to a floating point number.
-    const value = input.value / 100;
+    const proportion = value / 100;
 
     // Define the array of candidates.
     const candidates: CandidateProps[] = [first, second, ...dropouts];
@@ -32,38 +32,35 @@ export const useEstimates = (input: InputProps) => {
             // If the interface candidate is the first qualified candidate.
             if (from === first.id) {
                 // Distribute its own votes.
-                newVotesFirstCandidate = first.votes * value;
-                newVotesSecondCandidate = first.votes * (1 - value);
+                newVotesFirstCandidate = first.votes * proportion;
+                newVotesSecondCandidate = first.votes * (1 - proportion);
             }
 
             // If the interface candidate is the second qualified candidate.
             if (from === second.id) {
                 // Distribute its own votes.
-                newVotesFirstCandidate = second.votes * (1 - value);
-                newVotesSecondCandidate = second.votes * value;
+                newVotesFirstCandidate = second.votes * (1 - proportion);
+                newVotesSecondCandidate = second.votes * proportion;
             }
         // Otherwise, search for the candidate.
         } else {
-            // Otherwise, search for the candidate in the array.
-            for (const candidate of candidates) {
-                // If the candidate in the array matches the giver from the input.
-                if (from === candidate.id) {
-                    // If the target is the first qualified candidate.
-                    if (to === first.id) {
-                        // Distribute the votes.
-                        newVotesFirstCandidate = first.votes + candidate.votes * value;
-                        newVotesSecondCandidate = second.votes + candidate.votes * (1 - value);
-                    }
+            // Find the candidate efficiently.
+            const candidate = dropouts.find(c => c.id === from);
 
-                    // If the target is the second qualified candidate.
-                    if (to === second.id) {
-                        // Distribute the votes.
-                        newVotesFirstCandidate = first.votes + candidate.votes * (1 - value);
-                        newVotesSecondCandidate = second.votes + candidate.votes * value;
-                    }
+            // If the candidate is found.
+            if (candidate) {
+                // If the target is the first qualified candidate.
+                if (to === first.id) {
+                    // Distribute the votes.
+                    newVotesFirstCandidate = first.votes + candidate.votes * proportion;
+                    newVotesSecondCandidate = second.votes + candidate.votes * (1 - proportion);
+                }
 
-                    // Break free once the candidate is found and processed.
-                    break;
+                // If the target is the second qualified candidate.
+                if (to === second.id) {
+                    // Distribute the votes.
+                    newVotesFirstCandidate = first.votes + candidate.votes * (1 - proportion);
+                    newVotesSecondCandidate = second.votes + candidate.votes * proportion;
                 }
             }
         }
@@ -74,7 +71,7 @@ export const useEstimates = (input: InputProps) => {
             Math.round(newVotesSecondCandidate)
         ];
 
-    }, [from, to, value, candidates]);
+    }, [from, to, proportion, candidates]);
 
     // Return the updated votes.
     return [votesFirstCandidate, votesSecondCandidate];
