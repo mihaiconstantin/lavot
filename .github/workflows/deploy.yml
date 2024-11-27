@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy:
+      runs-on: ubuntu-22.04
+      permissions:
+        contents: write
+      concurrency:
+        group: ${{ github.workflow }}-${{ github.ref }}
+      steps:
+        - name: Checkout the repository
+          uses: actions/checkout@v3
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: "23"
+
+        - name: Install `pnpm`
+          run: npm install -g pnpm
+
+        - name: Install dependencies
+          run: pnpm install
+
+        - name: Build
+          run: pnpm run build
+
+        - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./dist
