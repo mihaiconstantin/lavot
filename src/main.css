@@ -91,6 +91,10 @@ header .logo {
 
 /* #region Section title and description styles. */
 
+.section-title {
+    margin-bottom: 1.2rem;
+}
+
 .section-title span {
     font-size: 1.1rem;
 }
@@ -157,6 +161,10 @@ header .logo {
 .control .form-check > label {
     color: var(--bs-gray-800);
     font-size: 0.9rem;
+}
+
+.control .section-description {
+    margin-top: 0;
 }
 
 /* #endregion */
