@@ -5,7 +5,6 @@ import DropoutCandidate from "./DropoutCandidate";
 import SectionSubtitle from "./SectionSubtitle";
 import SectionTitle from "./SectionTitle";
 import NewVoters from "./NewVoters";
-import Debug from "./Debug";
 import { data } from "../data/data";
 import { formatNumber } from "../utils/formatNumbers";
 import { calculateVotingPresence } from "../utils/calculateVotes";
@@ -35,10 +34,10 @@ const Candidates: React.FC = () => {
     return (
         <section id="controls" className="row">
             <div className="col-12 shadow controls-wrapper">
-                <Debug
+                {/* <Debug
                     voters={statistics.voters}
                     votesRoundOne={statistics.votesRoundOne}
-                />
+                /> */}
 
                 {/* Render the section title. */}
                 <SectionTitle title="Împarte Voturile " />
