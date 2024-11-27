@@ -94,7 +94,7 @@ header .logo {
     font-size: 1.1rem;
 }
 
-.section-title .bi {
+.section-title svg {
     color: var(--bs-gray-800);
     margin-right: 0.5rem;
     margin-top: -3px;
@@ -111,6 +111,16 @@ header .logo {
     font-size: 1rem;
     margin-bottom: 1rem;
 }
+
+.section-subtitle span {
+    margin-left: 0.5rem;
+}
+
+.section-subtitle svg {
+    margin-top: -4px;
+    color: #002B7F;
+}
+
 
 /* #endregion */
 
