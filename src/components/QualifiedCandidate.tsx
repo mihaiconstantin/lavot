@@ -66,6 +66,7 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
                     id={`${id}-slider`}
                     min="0"
                     max="100"
+                    step="0.01"
                     value={allocation.percentage}
                     onChange={handleChange}
                 />
