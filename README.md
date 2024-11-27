@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://lvaot.mihaiconstantin.com">
+    <a href="https://lavot.mihaiconstantin.com">
         <img width="350px" src="public/images/logo-lavot.png" alt="La VOT"/>
     </a>
 </p>
@@ -8,7 +8,7 @@
 <p align="center">
     <a href="https://www.repostatus.org/#concept"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Repository status"/></a>
     <a href="https://github.com/mihaiconstantin/lavot/releases"><img src="https://img.shields.io/github/v/release/mihaiconstantin/lavot?display_name=tag&sort=semver" alt="GitHub version"/></a>
-    <a href="https://lvaot.mihaiconstantin.com"><img src="https://img.shields.io/badge/website-live-brightgreen" alt="Website"/></a>
+    <a href="https://lavot.mihaiconstantin.com"><img src="https://img.shields.io/badge/website-live-brightgreen" alt="Website"/></a>
 </p>
 <!-- badges: end -->
 
@@ -43,4 +43,4 @@ pnpm dev
 ## License
 - The package source code in this repository is licensed under the [MIT
   license](https://opensource.org/license/mit).
-- <p class="license-cc" xmlns:cc="https://creativecommons.org/ns#" xmlns:dct="https://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://lvaot.mihaiconstantin.com">Other website materials</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://mihaiconstantin.com">Mihai Constantin</a> and <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="mailto:ionut.badea@yazee.me">Ionuț Badea</a> are licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0 <img style="height:22px!important" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"> <img style="height:22px!important" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>.</p>
+- <p class="license-cc" xmlns:cc="https://creativecommons.org/ns#" xmlns:dct="https://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://lavot.mihaiconstantin.com">Other website materials</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://mihaiconstantin.com">Mihai Constantin</a> and <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="mailto:ionut.badea@yazee.me">Ionuț Badea</a> are licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0 <img style="height:22px!important" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"> <img style="height:22px!important" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>.</p>
