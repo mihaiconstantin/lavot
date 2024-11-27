@@ -1,4 +1,5 @@
 import React from 'react';
+import Forecast from './Forecast';
 
 
 const Output: React.FC = () => {
@@ -15,11 +16,7 @@ const Output: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="row control">
-                    <div className="col-12 figure">
-                        <img src="https://picsum.photos/id/237/1920/1080" className="img-fluid" alt="Prognoza ta pentru turul doi" />
-                    </div>
-                </div>
+                <Forecast />
             </div>
         </section>
     );
