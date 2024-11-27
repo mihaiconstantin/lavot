@@ -10,3 +10,16 @@ export const formatNumber = (num: number): string => {
     return num.toLocaleString();
 };
 
+
+/**
+ * Rounds a number to two decimal places.
+ *
+ * This function takes a number as input and returns the number rounded to two decimal places.
+ * It uses `Math.round` and `Number.EPSILON` to ensure accurate rounding.
+ *
+ * @param num - The number to be rounded.
+ * @returns The number rounded to two decimal places.
+ */
+export const roundToTwoDecimals = (num: number): number => {
+    return Math.round((num + Number.EPSILON) * 100) / 100;
+};
