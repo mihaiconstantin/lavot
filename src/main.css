@@ -79,6 +79,7 @@
 header {
     margin-bottom: 2rem;
     padding-bottom: 1rem;
+    margin-top: 1rem!important;
 }
 
 .header-subtitle {
