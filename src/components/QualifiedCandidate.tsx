@@ -1,18 +1,41 @@
-import React, { useState } from "react";
-import { useEstimates } from "../hooks/useEstimates";
+import { useAtom } from "jotai";
 import { CandidateProps } from "../types/CandidateProps";
-import { useOpponent } from "../hooks/useOpponent";
+import { allocationsAtom } from "../atoms/allocationAtoms";
+import { useUpdateAllocation } from "../hooks/useUpdateAllocation";
+import { useGetOpponent } from "../hooks/useOpponent";
+import { formatNumber } from "../utils/formatNumbers";
 
 
 const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentage }) => {
+    // Get the update function for the allocations.
+    const updateAllocation = useUpdateAllocation();
+
+    // Get the get function for the opponent.
+    const getOpponent = useGetOpponent();
+
+    // Get the global state of vote allocations.
+    const [ allocations ] = useAtom(allocationsAtom);
+
+    // Extract the allocation for the current candidate.
+    const allocation = allocations.find(a => a.from === id)!;
+
     // Get the opponent of the current candidate.
-    const opponent = useOpponent(id);
+    const opponent = getOpponent(id);
 
-    // Set the initial state for each dropped-out candidate.
-    const [value, setValue] = useState(100);
+    // Determine the votes for the first candidate.
+    const candidateVotes = Math.round(votes * (allocation.percentage / 100));
 
-    // Get the current values based on the starting state.
-    const [firstCandidateVotes, secondCandidateVotes] = useEstimates({ from: id, to: id, value });
+    // Determine the votes for the second candidate.
+    const opponentVotes = votes - candidateVotes;
+
+    // Define the change handler for the slider.
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // Extract the new value from the event.
+        const value = parseInt(e.target.value);
+
+        // Update the allocation based on the new value.
+        updateAllocation(id, id, value);
+    };
 
     return (
         <div className="row align-items-top control candidate justify-content-between">
@@ -26,7 +49,7 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
 
             <div className="row votes">
                 <div className="col-12">
-                        <span className="count">{ votes }</span> voturi (
+                        <span className="count">{ formatNumber(votes) }</span> voturi (
                         <span className="percentage">{ percentage }%</span>)
                 </div>
             </div>
@@ -34,17 +57,17 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
 
         <div className="b col-4 candidate-slider">
             <div className="form-group">
-                <label htmlFor={ id }>
+                <label htmlFor={`${id}-slider`}>
                     Câte voturi preconizezi că va reține candidatul?
                 </label>
                 <input
                     type="range"
                     className = "form-range"
-                    id={id}
+                    id={`${id}-slider`}
                     min="0"
                     max="100"
-                    value={value}
-                    onChange={(e) => setValue(parseFloat(e.target.value))}
+                    value={allocation.percentage}
+                    onChange={handleChange}
                 />
             </div>
         </div>
@@ -52,7 +75,7 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
         <div className="b col-4 candidate-receiver">
             <div className="row">
                 <div className="col-12 feedback">
-                    <span className="name gain">{name}</span> va reține <span className="gain">{value}%</span> din voturi (<span className="gain">{ firstCandidateVotes }</span>), iar restul de <span className="loss">{100 - value}%</span> (<span className="loss">{ secondCandidateVotes }</span>) vor merge către <span className="name loss">{ opponent.name }</span>.
+                    <span className="name">{name}</span> va reține <span className="fw-bold">{allocation.percentage}%</span> din voturi (<span className="">{formatNumber(candidateVotes)}</span>), iar restul de <span className="fw-bold">{100 - allocation.percentage}%</span> (<span className="">{formatNumber(opponentVotes)}</span>) vor merge către <span className="name">{opponent.name}</span>.
                 </div>
             </div>
         </div>
