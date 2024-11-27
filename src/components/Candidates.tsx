@@ -4,6 +4,8 @@ import QualifiedCandidate from "./QualifiedCandidate";
 import DropoutCandidate from "./DropoutCandidate";
 import { data } from "../data/data";
 import Debug from "./Debug";
+import SectionSubtitle from "./SectionSubtitle";
+import SectionTitle from "./SectionTitle";
 
 
 const Candidates: React.FC = () => {
@@ -18,17 +20,14 @@ const Candidates: React.FC = () => {
             <div className="col-12 shadow controls-wrapper">
                 <Debug />
 
+                {/* Render the section title. */}
+                <SectionTitle title="Împarte Voturile " />
+
                 {/* Render the summary. */}
                 <Summary />
 
-                <div className="b row text-muted display-6 section-subtitle">
-                    <div className="col-12">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark-fill" viewBox="0 0 16 16">
-                            <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2"/>
-                        </svg>
-                        <span>Candidații Din Turul Doi</span>
-                    </div>
-                </div>
+                {/* Render section subtitle. */}
+                <SectionSubtitle subtitle="Candidații Din Turul Doi" />
 
                 {/* Render the qualified candidates. */}
                 {qualified.map((candidate) => (
@@ -41,14 +40,8 @@ const Candidates: React.FC = () => {
                     />
                 ))}
 
-                <div className="b row text-muted lead section-subtitle">
-                    <div className="col-12">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark-fill" viewBox="0 0 16 16">
-                            <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2"/>
-                        </svg>
-                        <span>Candidații Eliminați</span>
-                    </div>
-                </div>
+                {/* Render section subtitle. */}
+                <SectionSubtitle subtitle="Candidații Eliminați" />
 
                 {/* Render the dropouts. */}
                 {dropouts.map((candidate) => (
