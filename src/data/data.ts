@@ -13,8 +13,8 @@ export const data = {
         percentage: 19.18,
     },
     statistics: {
-        eligible: 18008480,
-        roundOne: 9242186,
+        voters: 18008480,
+        votesRoundOne: 9242186,
     },
     dropouts: [
         {
