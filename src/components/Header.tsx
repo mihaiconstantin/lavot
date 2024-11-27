@@ -9,8 +9,8 @@ const Header: React.FC = () => {
                     <span className="flag-yellow">O</span>
                     <span className="flag-red">T</span>
                 </h1>
-                <div className="header-subtitle display-6 fw-lighter text-secondary">
-                    Romania <span className="text-underscore">Mai Poate</span> Decide
+                <div className="header-subtitle display-6 fw-lighter">
+                    Romania <span className="flag-animation">Mai Poate</span> Decide
                 </div>
             </div>
         </header>
