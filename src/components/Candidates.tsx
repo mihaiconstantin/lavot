@@ -3,6 +3,8 @@ import Summary from "./Summary";
 import QualifiedCandidate from "./QualifiedCandidate";
 import DropoutCandidate from "./DropoutCandidate";
 import { data } from "../data/data";
+import Debug from "./Debug";
+
 
 const Candidates: React.FC = () => {
     // Extract relevant information from the data array.
@@ -14,6 +16,8 @@ const Candidates: React.FC = () => {
     return (
         <section id="controls" className="row">
             <div className="col-12 shadow controls-wrapper">
+                <Debug />
+
                 {/* Render the summary. */}
                 <Summary />
 
