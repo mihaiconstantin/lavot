@@ -3,8 +3,8 @@ import React from "react";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="b row">
-            <div className="bg col-12 text-center">
+        <footer className="row">
+            <div className="col-12 text-center">
                 <span className="authors">Made with <span className="heart">&#128148;</span> by {""}
                     <a className="author text-decoration-none" href="https://mihaiconstantin.com" target="_blank"> Mihai Constantin</a>
                     {" "} and {" "}
