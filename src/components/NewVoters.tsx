@@ -91,10 +91,10 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
         };
 
     return (
-        <div className="row align-items-top control candidate justify-content-between">
-            <div className="b col-4 candidate-slider">
+        <div className="row control candidate align-items-top justify-content-between">
+            <div className="col-12 col-lg-3 candidate-slider">
                 <div className="form-group">
-                    <label className="b" htmlFor="round-two-presence">Care va fi prezența la vot în turul doi?</label>
+                    <label htmlFor="round-two-presence">Care va fi prezența la vot în turul doi?</label>
                     <input
                         type="range"
                         className="form-range"
@@ -108,9 +108,9 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
                 </div>
             </div>
 
-            <div className="b col-4 candidate-slider">
+            <div className="col-12 col-lg-3 candidate-slider">
                 <div className="form-group">
-                    <label className="b" htmlFor="people-allocation">Cate din noile voturi vor fi realocate?</label>
+                    <label htmlFor="people-allocation">Cate din noile voturi vor fi realocate?</label>
                     <input
                         type="range"
                         className="form-range"
@@ -124,9 +124,9 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
                 </div>
             </div>
 
-            <div className="b col-4 candidate-receiver">
-                <div className="b question">Către cine vor fi realocate voturile?</div>
-                <div className="b form-check">
+            <div className="col-12 col-lg-3 candidate-receiver">
+                <div className="question">Către cine vor fi realocate voturile?</div>
+                <div className="form-check">
                     <input
                         className="form-check-input"
                         type="radio"
@@ -145,7 +145,7 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
                         </span>
                     </label>
                 </div>
-                <div className="b form-check">
+                <div className="form-check">
                     <input
                         className="form-check-input"
                         type="radio"
