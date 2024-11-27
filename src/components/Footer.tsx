@@ -11,9 +11,10 @@ const Footer: React.FC = () => {
                     <a className="author text-decoration-none" href="mailto:ionut.badea@yazee.me" target="_blank">Ionuț Badea</a>
                 </span>
                 <div className="footer-call display-6 fw-lighter">
-                    Hai La <span className="flag-blue">V</span>
-                    <span className="flag-yellow">O</span>
-                    <span className="flag-red">T</span>
+                    <span className="cursive footer-logo-preposition">La</span>{" "}
+                    <span className="cursive flag-blue">V</span>
+                    <span className="cursive flag-yellow">O</span>
+                    <span className="cursive flag-red">T</span>
                 </div>
                 <span className="license"> MIT licensed </span>
                 <span className="github">

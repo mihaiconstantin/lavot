@@ -6,9 +6,10 @@ const Header: React.FC = () => {
         <header className="row text-center">
             <div className="col-12">
                 <h1 className="display-1 fw-lighter">
-                    La <span className="flag-blue">V</span>
-                    <span className="flag-yellow">O</span>
-                    <span className="flag-red">T</span>
+                    <span className="header-logo-preposition cursive">La</span>{" "}
+                    <span className="logo-letter cursive flag-blue">V</span>
+                    <span className="logo-letter cursive flag-yellow">O</span>
+                    <span className="logo-letter cursive flag-red">T</span>
                 </h1>
                 <div className="header-subtitle display-6 fw-lighter">
                     Romania <span className="flag-animation">Mai Poate</span> Decide

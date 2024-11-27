@@ -88,8 +88,8 @@ header {
     color: #6c757dcf;
 }
 
-header .logo {
-    width: 150px;
+header .header-logo-preposition {
+    font-size: 3rem;
 }
 
 /* #endregion */
@@ -286,6 +286,10 @@ footer .author {
 
 footer .footer-call {
     margin: 0.5rem auto;
+}
+
+footer .footer-logo-preposition {
+    font-size: 1.5rem;
 }
 
 footer .github {
