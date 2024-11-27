@@ -53,3 +53,47 @@ export const calculateTotalVotes = (candidates: CandidateProps[]): number => {
 };
 
 
+// Helper to calculate votes allocation based.
+export const calculateVotes = (firstCandidate: CandidateProps, secondCandidate: CandidateProps, dropoutCandidates: CandidateProps[], allocations: InputProps[]): CandidateProps[] => {
+    // Merge the candidates.
+    const candidates = [firstCandidate, secondCandidate, ...dropoutCandidates];
+
+    // Initialize the candidate objects.
+    const firstCandidateTotal: CandidateProps = { ...firstCandidate, votes: 0, percentage: 0 };
+    const secondCandidateTotal: CandidateProps = { ...secondCandidate, votes: 0, percentage: 0 };
+
+    // For each candidate.
+    candidates.forEach(candidate => {
+        // Find its corresponding allocation.
+        const allocation = allocations.find(a => a.from === candidate.id);
+
+        // If such an allocation exists.
+        if (allocation) {
+            // If the allocation is for the first candidate.
+            if (allocation.to === firstCandidate.id) {
+                firstCandidateTotal.votes += candidate.votes * allocation.proportion;
+                secondCandidateTotal.votes += candidate.votes * (1 - allocation.proportion);
+            }
+
+            // If the allocation is for the second candidate.
+            if (allocation.to === secondCandidate.id) {
+                secondCandidateTotal.votes += candidate.votes * allocation.proportion;
+                firstCandidateTotal.votes += candidate.votes * (1 - allocation.proportion);
+            }
+        }
+    });
+
+    // Round the votes to the nearest integer.
+    firstCandidateTotal.votes = Math.round(firstCandidateTotal.votes);
+    secondCandidateTotal.votes = Math.round(secondCandidateTotal.votes);
+
+    // Calculate the total votes.
+    const totalVotes = calculateTotalVotes(candidates);
+
+    // Calculate the percentages.
+    firstCandidateTotal.percentage = (firstCandidateTotal.votes / totalVotes) * 100;
+    secondCandidateTotal.percentage = (secondCandidateTotal.votes / totalVotes) * 100;
+
+    // Return the candidate array with totals.
+    return [firstCandidateTotal, secondCandidateTotal];
+};
