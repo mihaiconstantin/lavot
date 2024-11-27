@@ -20,7 +20,11 @@ const Footer: React.FC = () => {
                 >
                     Badea Ionuț
                 </a>
-                <br />
+                <div className="footer-call display-6 fw-lighter">
+                    Hai La <span className="flag-blue">V</span>
+                    <span className="flag-yellow">O</span>
+                    <span className="flag-red">T</span>
+                </div>
                 <span className="license"> MIT licensed </span>
                 <span className="github">
                     <a
