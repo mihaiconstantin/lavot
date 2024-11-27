@@ -1,15 +1,17 @@
-import { useData } from "./useData";
+import { data } from "../data/data";
 import { CandidateProps } from "../types/CandidateProps";
 
 
 // Get the opponent of a current qualifed candidate by `ID`.
-export const useOpponent = (id: string): CandidateProps => {
-    // Get the data.
-    const data = useData();
-
+export const useGetOpponent = () => {
     // Extract the relevant objects.
     const { first, second } = data;
 
-    // Return the opponent.
-    return id === first.id ? second : first;
+    const getOpponent = (id: string): CandidateProps => {
+        // Return the opponent.
+        return id === first.id ? second : first;
+    }
+
+    // Return the get function.
+    return getOpponent;
 };
