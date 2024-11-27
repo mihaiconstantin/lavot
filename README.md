@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+<p align="center">
+    <a href="https://hailavot.ro">
+        <img width="350px" src="public/images/logo-lavot.png" alt="La VOT"/>
+    </a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- badges: start -->
+<p align="center">
+    <a href="https://www.repostatus.org/#concept"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Repository status"/></a>
+    <a href="https://github.com/mihaiconstantin/lavot/releases"><img src="https://img.shields.io/github/v/release/mihaiconstantin/lavot?display_name=tag&sort=semver" alt="GitHub version"/></a>
+    <a href="https://hailavot.ro"><img src="https://img.shields.io/badge/live-website-brightgreen" alt="Website"/></a>
+</p>
+<!-- badges: end -->
 
-Currently, two official plugins are available:
+**La VOT** is a [`React`](https://react.dev/) app (i.e., technological pun
+intended) where you can redistribute votes from the first round of the 2024
+Romanian presidential elections to the candidates who made it to the second
+round. The stakes are high, and the price? Democracy. Our hope is that this app
+will inspire at least one person to go out and vote.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+```bash
+# Clone the repository.
+git clone https://github.com/mihaiconstantin/lavot.git
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Change directory.
+cd lavot
 
-- Configure the top-level `parserOptions` property like this:
+# Install dependencies.
+pnpm install
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Start the development server.
+pnpm dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Contributing
+- Any contributions are welcome and greatly appreciated. Please open a [pull
+  request](https://github.com/mihaiconstantin/lavot/pulls) on `GitHub`.
+- To report bugs, or request new features, please open an
+  [issue](https://github.com/mihaiconstantin/lavot/issues) on `GitHub`.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## License
+- The package source code in this repository is licensed under the [MIT
+  license](https://opensource.org/license/mit).
+- <p class="license-cc" xmlns:cc="https://creativecommons.org/ns#" xmlns:dct="https://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://parabar.mihaiconstantin.com">Other website materials</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://mihaiconstantin.com">Mihai Constantin</a> and <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="mailto:ionut.badea@yazee.me">Ionuț Badea</a> are licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0 <img style="height:22px!important" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"> <img style="height:22px!important" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>.</p>
