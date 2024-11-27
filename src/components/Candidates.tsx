@@ -2,12 +2,9 @@ import React from "react";
 import Summary from "./Summary";
 import QualifiedCandidate from "./QualifiedCandidate";
 import DropoutCandidate from "./DropoutCandidate";
-import { useData } from "../hooks/useData";
+import { data } from "../data/data";
 
 const Candidates: React.FC = () => {
-    // Get the data array.
-    const data = useData();
-
     // Extract relevant information from the data array.
     const { first, second, dropouts } = data;
 
@@ -20,7 +17,7 @@ const Candidates: React.FC = () => {
                 {/* Render the summary. */}
                 <Summary />
 
-                <div className="b row section-subtitle">
+                <div className="b row text-muted display-6 section-subtitle">
                     <div className="col-12">Candidații Din Turul Doi</div>
                 </div>
 
@@ -35,7 +32,7 @@ const Candidates: React.FC = () => {
                     />
                 ))}
 
-                <div className="b row section-subtitle">
+                <div className="b row text-muted lead section-subtitle">
                     <div className="col-12">Candidații Eliminați</div>
                 </div>
 
