@@ -115,7 +115,7 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
                     <label
                         className="form-check-label"
                         htmlFor={`${id}-${firstCandidate.name}-radio`}>
-                        {firstCandidate.name} <span className="votes-added fw-light text-secondary"><span className="votes-added-count">{formatNumber(addedToFirst.votes)}</span> voturi <span className="votes-added-percentage">({addedToFirst.percentage}%)</span></span>
+                        {firstCandidate.name} <span className="votes-added fw-light text-secondary"><span className="votes-added-count">{formatNumber(addedToFirst.votes)}</span> voturi <span className="votes-added-percentage">({addedToFirst.percentage.toFixed(2)}%)</span></span>
                     </label>
                 </div>
                 <div className="b form-check">
@@ -131,7 +131,7 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
                     <label
                         className="form-check-label"
                         htmlFor={`${id}-${secondCandidate.name}-radio`}>
-                        {secondCandidate.name} <span className="votes-added fw-light text-secondary"><span className="votes-added-count">{formatNumber(addedToSecond.votes)}</span> voturi <span className="votes-added-percentage">({addedToSecond.percentage}%)</span></span>
+                        {secondCandidate.name} <span className="votes-added fw-light text-secondary"><span className="votes-added-count">{formatNumber(addedToSecond.votes)}</span> voturi <span className="votes-added-percentage">({addedToSecond.percentage.toFixed(2)}%)</span></span>
                     </label>
                 </div>
             </div>

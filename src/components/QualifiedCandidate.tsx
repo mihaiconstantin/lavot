@@ -50,7 +50,7 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
             <div className="row votes">
                 <div className="col-12">
                         <span className="count">{ formatNumber(votes) }</span> voturi (
-                        <span className="percentage">{ percentage }%</span>)
+                        <span className="percentage">{ percentage.toFixed(2) }%</span>)
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
         <div className="b col-4 candidate-receiver">
             <div className="row">
                 <div className="col-12 feedback">
-                    <span className="name">{name}</span> va reține <span className="fw-bold">{allocation.percentage}%</span> din voturi (<span className="">{formatNumber(candidateVotes)}</span>), iar restul de <span className="fw-bold">{100 - allocation.percentage}%</span> (<span className="">{formatNumber(opponentVotes)}</span>) vor merge către <span className="name">{opponent.name}</span>.
+                    <span className="name">{name}</span> va reține <span className="fw-bold">{allocation.percentage.toFixed(2)}%</span> din voturi (<span className="">{formatNumber(candidateVotes)}</span>), iar restul de <span className="fw-bold">{(100 - allocation.percentage).toFixed(2)}%</span> (<span className="">{formatNumber(opponentVotes)}</span>) vor merge către <span className="name">{opponent.name}</span>.
                 </div>
             </div>
         </div>
