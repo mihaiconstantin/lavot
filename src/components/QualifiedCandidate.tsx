@@ -31,7 +31,7 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
     // Define the change handler for the slider.
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         // Extract the new value from the event.
-        const value = parseInt(e.target.value);
+        const value = parseFloat(e.target.value);
 
         // Update the allocation based on the new value.
         updateAllocation(id, id, value);

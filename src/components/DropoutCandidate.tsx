@@ -25,7 +25,7 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
     // Define the change handler for the slider.
     const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         // Extract the new value from the event.
-        const newPercentage = parseInt(e.target.value);
+        const newPercentage = parseFloat(e.target.value);
 
         // Update the allocation based on the new value.
         updateAllocation(id, allocation.to, newPercentage);
