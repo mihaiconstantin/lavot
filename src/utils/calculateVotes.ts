@@ -97,3 +97,19 @@ export const calculateVotes = (firstCandidate: CandidateProps, secondCandidate: 
     // Return the candidate array with totals.
     return [firstCandidateTotal, secondCandidateTotal];
 };
+
+
+// Helper to calculate the new votes.
+export const initializeNewVoters = (candidate: CandidateProps, statistics: Statistics): NewVoters => {
+    // Calculate the expected presence.
+    const presence = calculateVotingPresence(statistics.voters, statistics.votesRoundOne);
+
+    // Return the new votes object.
+    return {
+        to: candidate.id,
+        presence: presence,
+        percentage: 50,
+        proportion: 0.5
+    };
+};
+
