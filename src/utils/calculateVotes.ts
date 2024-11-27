@@ -113,3 +113,28 @@ export const initializeNewVoters = (candidate: CandidateProps, statistics: Stati
     };
 };
 
+
+// Helper to calculate the voting presence.
+export const calculateVotingPresence = (voters: number, votes: number): number => {
+    // Calculate the presence.
+    let presence = votes / voters;
+
+    // Convert to a percentage.
+    presence = presence * 100;
+
+    // Return as a percentage.
+    return (presence);
+};
+
+
+// Helper to calculate new compared to the first round.
+export const calculateNewVotes = (voters: number, votesRoundOne: number, presence: number): number => {
+    // Convert the presence to a proportion.
+    presence = presence / 100;
+
+    // Calculate the votes.
+    const votes = voters * presence - votesRoundOne;
+
+    // Return the votes.
+    return (votes);
+};
