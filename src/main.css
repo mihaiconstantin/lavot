@@ -161,6 +161,16 @@ header .header-logo-preposition {
     font-size: 0.9rem;
 }
 
+@media (max-width: 991px) {
+    .control .form-group > label {
+        margin-bottom: 1rem;
+    }
+
+    .control .candidate-information, .candidate-slider {
+        margin-bottom: 1rem;
+    }
+}
+
 .control input {
     font-size: 0.9rem;
 }
@@ -250,6 +260,28 @@ header .header-logo-preposition {
 
 .outputs-wrapper {
     padding: 1.5rem;
+}
+
+.output-forecast {
+    margin-bottom: 2rem;
+    border: 1px solid #e9ecef;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.output-forecast:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.forecast-second-round {
+    border-top: 1px solid #e9ecef;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.output-forecast .new-votes-second-round {
+    margin-top: 1rem;
 }
 
 
