@@ -1,5 +1,7 @@
 import { CandidateProps } from "../types/CandidateProps";
 import { InputProps } from "../types/InputProps";
+import { NewVoters } from "../types/NewVoters";
+import { Statistics } from "../types/Statistics";
 
 
 // Helper to initialize allocations.
@@ -54,7 +56,7 @@ export const calculateTotalVotes = (candidates: CandidateProps[]): number => {
 
 
 // Helper to calculate votes allocation based.
-export const calculateVotes = (firstCandidate: CandidateProps, secondCandidate: CandidateProps, dropoutCandidates: CandidateProps[], allocations: InputProps[]): CandidateProps[] => {
+export const calculateVotes = (statistics: Statistics, firstCandidate: CandidateProps, secondCandidate: CandidateProps, dropoutCandidates: CandidateProps[], allocations: InputProps[], newVoters: NewVoters): CandidateProps[] => {
     // Merge the candidates.
     const candidates = [firstCandidate, secondCandidate, ...dropoutCandidates];
 
@@ -82,6 +84,21 @@ export const calculateVotes = (firstCandidate: CandidateProps, secondCandidate: 
             }
         }
     });
+
+    // Determine how many new votes to add.
+    const newVotes = calculateNewVotes(statistics.voters, statistics.votesRoundOne, newVoters.presence);
+
+    // Add the new votes to the first candidate.
+    if (newVoters.to === firstCandidate.id) {
+        firstCandidateTotal.votes += newVotes * newVoters.proportion;
+        secondCandidateTotal.votes += newVotes * (1 - newVoters.proportion);
+    }
+
+    // Add the new votes to the second candidate.
+    if (newVoters.to === secondCandidate.id) {
+        secondCandidateTotal.votes += newVotes * newVoters.proportion;
+        firstCandidateTotal.votes += newVotes * (1 - newVoters.proportion);
+    }
 
     // Round the votes to the nearest integer.
     firstCandidateTotal.votes = Math.round(firstCandidateTotal.votes);
