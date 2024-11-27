@@ -64,8 +64,8 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
 
 
     return (
-        <div className="row align-items-top control candidate justify-content-between">
-            <div className="b col-3 candidate-information">
+        <div className="row control candidate align-items-top justify-content-between">
+            <div className="col-12 col-lg-3 candidate-information">
                 <div className="row identification">
                     <div className="col-12">
                         <span className="name">{ name }</span>
@@ -80,9 +80,9 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
                 </div>
             </div>
 
-            <div className="b col-4 candidate-slider">
+            <div className="col-12 col-lg-4 candidate-slider">
                 <div className="form-group">
-                    <label className="b" htmlFor={`${id}-slider`}>
+                    <label htmlFor={`${id}-slider`}>
                         Câte voturi ale candidatului vor fi realocate?
                     </label>
                     <input
@@ -98,11 +98,11 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
                 </div>
             </div>
 
-            <div className="b col-4 candidate-receiver">
-                <div className="b question">
+            <div className="col-12 col-lg-3 candidate-receiver">
+                <div className="question">
                     Către cine vor fi realocate voturile?
                 </div>
-                <div className="b form-check">
+                <div className="form-check">
                     <input
                         className="form-check-input"
                         type="radio"
@@ -118,7 +118,7 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
                         {firstCandidate.name} <span className="votes-added fw-light text-secondary"><span className="votes-added-count">{formatNumber(addedToFirst.votes)}</span> voturi <span className="votes-added-percentage">({addedToFirst.percentage.toFixed(2)}%)</span></span>
                     </label>
                 </div>
-                <div className="b form-check">
+                <div className="form-check">
                     <input
                         className="form-check-input"
                         type="radio"
