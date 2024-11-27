@@ -1,22 +1,67 @@
-import React, { useState } from "react";
-import { useEstimates } from "../hooks/useEstimates";
+import { useAtom } from "jotai";
 import { CandidateProps } from "../types/CandidateProps";
-import { useData } from "../hooks/useData";
+import { allocationsAtom, votesAtom } from "../atoms/allocationAtoms";
+import { useUpdateAllocation } from "../hooks/useUpdateAllocation";
+import { formatNumber } from "../utils/formatNumbers";
 
 
 const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentage }) => {
-    // Fetch the data array.
-    const data = useData();
+    // Get the update function for the allocations.
+    const updateAllocation = useUpdateAllocation();
 
-    // Extract the qualified candidates.
-    const { first, second } = data;
+    // Get the global state of vote allocations.
+    const [ allocations ] = useAtom(allocationsAtom);
 
-    // Set the initial state for each dropped-out candidate.
-    const [value, setValue] = useState(50);
-    const [to, setTo] = useState("1");
+    // Get the global state of vote calculations.
+    const [ candidateTotals ] = useAtom(votesAtom);
 
-    // Get the current values based on the starting state.
-    useEstimates({ from: id, to, value });
+    // Extract the first and second candidate.
+    const firstCandidate: CandidateProps = candidateTotals[0];
+    const secondCandidate: CandidateProps = candidateTotals[1];
+
+    // Extract the allocation for the current candidate.
+    const allocation = allocations.find(a => a.from === id)!;
+
+    // Define the change handler for the slider.
+    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // Extract the new value from the event.
+        const newPercentage = parseInt(e.target.value);
+
+        // Update the allocation based on the new value.
+        updateAllocation(id, allocation.to, newPercentage);
+    };
+
+    // Define the change handler for the radio buttons.
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // Extract the new value from the event.
+        const newRecipient = e.target.value;
+
+        // Update the allocation based on the new value.
+        updateAllocation(id, newRecipient, allocation.percentage);
+    };
+
+    // Determine the number of votes to be reallocated to the first candidate.
+    const addedToFirst = allocation.to === firstCandidate.id
+        ? {
+            votes: Math.round(votes * (allocation.percentage / 100)),
+            percentage: allocation.percentage
+        }
+        : {
+            votes: votes - Math.round(votes * (allocation.percentage / 100)),
+            percentage: 100 - allocation.percentage
+        };
+
+    // Determine the number of votes to be reallocated to the second candidate.
+    const addedToSecond = allocation.to === secondCandidate.id
+        ? {
+            votes: Math.round(votes * (allocation.percentage / 100)),
+            percentage: allocation.percentage
+        }
+        : {
+            votes: votes - Math.round(votes * (allocation.percentage / 100)),
+            percentage: 100 - allocation.percentage
+        };
+
 
     return (
         <div className="row align-items-top control candidate justify-content-between">
@@ -29,7 +74,7 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
 
                 <div className="row votes">
                     <div className="col-12">
-                        <span className="count">{ votes }</span> voturi (
+                        <span className="count">{ formatNumber(votes) }</span> voturi (
                         <span className="percentage">{ percentage }%</span>)
                     </div>
                 </div>
@@ -37,39 +82,56 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
 
             <div className="b col-4 candidate-slider">
                 <div className="form-group">
-                    <label htmlFor={ id }>
+                    <label className="b" htmlFor={`${id}-slider`}>
                         Câte voturi ale candidatului vor fi realocate?
                     </label>
                     <input
                         type="range"
-                        className = "form-range"
-                        id={id}
+                        className="form-range"
+                        id={`${id}-slider`}
                         min="0"
                         max="100"
-                        value={value}
-                        onChange={(e) => setValue(parseFloat(e.target.value))}
+                        value={allocation.percentage}
+                        onChange={handleSliderChange}
                     />
                 </div>
             </div>
 
-            {/* TODO: Fix the label IDs (i.e., also in other parts). */}
             <div className="b col-4 candidate-receiver">
-                <div className="form-group">
+                <div className="b question">
+                    Către cine vor fi realocate voturile?
+                </div>
+                <div className="b form-check">
+                    <input
+                        className="form-check-input"
+                        type="radio"
+                        name={name}
+                        id={`${id}-${firstCandidate.name}-radio`}
+                        value={firstCandidate.id}
+                        checked={allocation.to === firstCandidate.id}
+                        onChange={handleRadioChange}
+                    />
                     <label
-                        className="control-label"
-                        id="selection-label"
-                        htmlFor="selection-selectized"
-                    >
-                        Către cine vor merge voturile?
+                        className="form-check-label"
+                        htmlFor={`${id}-${firstCandidate.name}-radio`}>
+                        {firstCandidate.name} <span className="votes-added fw-light text-secondary"><span className="votes-added-count">{formatNumber(addedToFirst.votes)}</span> voturi <span className="votes-added-percentage">({addedToFirst.percentage}%)</span></span>
                     </label>
-                    <select
-                       className="form-select"
-                       value={to}
-                       onChange={(e) => setTo(e.target.value)}
-                    >
-                        <option value={ first.id }> { first.name } </option>
-                        <option value={ second.id }> { second.name } </option>
-                    </select>
+                </div>
+                <div className="b form-check">
+                    <input
+                        className="form-check-input"
+                        type="radio"
+                        name={name}
+                        id={`${id}-${secondCandidate.name}-radio`}
+                        value={secondCandidate.id}
+                        checked={allocation.to === secondCandidate.id}
+                        onChange={handleRadioChange}
+                    />
+                    <label
+                        className="form-check-label"
+                        htmlFor={`${id}-${secondCandidate.name}-radio`}>
+                        {secondCandidate.name} <span className="votes-added fw-light text-secondary"><span className="votes-added-count">{formatNumber(addedToSecond.votes)}</span> voturi <span className="votes-added-percentage">({addedToSecond.percentage}%)</span></span>
+                    </label>
                 </div>
             </div>
         </div>
