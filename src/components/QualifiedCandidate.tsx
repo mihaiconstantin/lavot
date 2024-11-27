@@ -38,49 +38,48 @@ const QualifiedCandidate: React.FC<CandidateProps> = ({ id, name, votes, percent
     };
 
     return (
-        <div className="row align-items-top control candidate justify-content-between">
-        <div className="b col-3 candidate-information">
-            <div className="row identification">
-                <div className="col-12">
-                        <span className="annotation"></span>
+        <div className="row control candidate align-items-top justify-content-between">
+            <div className="col-12 col-lg-3 candidate-information">
+                <div className="row identification">
+                    <div className="col-12">
                         <span className="name">{ name }</span>
+                    </div>
                 </div>
-            </div>
 
-            <div className="row votes">
-                <div className="col-12">
+                <div className="row votes">
+                    <div className="col-12">
                         <span className="count">{ formatNumber(votes) }</span> voturi (
                         <span className="percentage">{ percentage.toFixed(2) }%</span>)
+                    </div>
+                </div>
+            </div>
+
+            <div className="col-12 col-lg-4 candidate-slider">
+                <div className="form-group">
+                    <label htmlFor={`${id}-slider`} className="">
+                        Câte voturi preconizezi că va reține candidatul?
+                    </label>
+                    <input
+                        type="range"
+                        className = "form-range"
+                        id={`${id}-slider`}
+                        min="0"
+                        max="100"
+                        step="0.01"
+                        value={allocation.percentage}
+                        onChange={handleChange}
+                    />
+                </div>
+            </div>
+
+            <div className="col-12 col-lg-3 candidate-receiver">
+                <div className="row">
+                    <div className="col-12 feedback">
+                        <span className="name">{name}</span> va reține <span className="fw-bold">{allocation.percentage.toFixed(2)}%</span> din voturi (<span className="">{formatNumber(candidateVotes)}</span>), iar restul de <span className="fw-bold">{(100 - allocation.percentage).toFixed(2)}%</span> (<span className="">{formatNumber(opponentVotes)}</span>) vor merge către <span className="name">{opponent.name}</span>.
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div className="b col-4 candidate-slider">
-            <div className="form-group">
-                <label htmlFor={`${id}-slider`}>
-                    Câte voturi preconizezi că va reține candidatul?
-                </label>
-                <input
-                    type="range"
-                    className = "form-range"
-                    id={`${id}-slider`}
-                    min="0"
-                    max="100"
-                    step="0.01"
-                    value={allocation.percentage}
-                    onChange={handleChange}
-                />
-            </div>
-        </div>
-
-        <div className="b col-4 candidate-receiver">
-            <div className="row">
-                <div className="col-12 feedback">
-                    <span className="name">{name}</span> va reține <span className="fw-bold">{allocation.percentage.toFixed(2)}%</span> din voturi (<span className="">{formatNumber(candidateVotes)}</span>), iar restul de <span className="fw-bold">{(100 - allocation.percentage).toFixed(2)}%</span> (<span className="">{formatNumber(opponentVotes)}</span>) vor merge către <span className="name">{opponent.name}</span>.
-                </div>
-            </div>
-        </div>
-    </div>
     );
 };
 
