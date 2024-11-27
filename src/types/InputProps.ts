@@ -2,5 +2,6 @@
 export interface InputProps {
     from: string;
     to: string;
-    value: number;
+    percentage: number;
+    proportion: number;
 }
