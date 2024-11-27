@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
                 <span className="authors">Made with <span className="heart">&#128148;</span> by {""}
                     <a className="author text-decoration-none" href="https://mihaiconstantin.com" target="_blank"> Mihai Constantin</a>
                     {" "} and {" "}
-                    <a className="author text-decoration-none" href="mailto:ionut.badea@yazee.me" target="_blank">Badea Ionuț</a>
+                    <a className="author text-decoration-none" href="mailto:ionut.badea@yazee.me" target="_blank">Ionuț Badea</a>
                 </span>
                 <div className="footer-call display-6 fw-lighter">
                     Hai La <span className="flag-blue">V</span>
