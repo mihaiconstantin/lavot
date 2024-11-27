@@ -26,7 +26,7 @@ export const initializeAllocations = (firstCandidate: CandidateProps, secondCand
         // Add the initial allocation for the candidate.
         allocations.push({
             from: candidate.id,
-            to: firstCandidate.id,
+            to: secondCandidate.id,
             percentage: 50,
             proportion: 0.5
         });
