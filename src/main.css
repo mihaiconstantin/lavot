@@ -270,6 +270,14 @@ footer .heart:hover {
     transform: rotate(360deg);
 }
 
+footer .authors {
+    color: #333537;
+}
+
+footer .author {
+    color: #002B7F;
+}
+
 footer .footer-call {
     margin: 0.5rem auto;
 }
@@ -282,6 +290,7 @@ footer .github {
 footer .github a {
     color: #000000;
 }
+
 
 /* #endregion */
 
