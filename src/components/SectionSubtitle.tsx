@@ -1,8 +1,10 @@
 import React from 'react';
 
+
 interface SectionSubtitleProps {
     subtitle: string;
 }
+
 
 const SectionSubtitle: React.FC<SectionSubtitleProps> = ({ subtitle }) => {
     return (

@@ -1,8 +1,10 @@
 import React from 'react';
 
+
 interface SectionTitleProps {
     title: string;
 }
+
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
     return (
