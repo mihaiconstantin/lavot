@@ -36,3 +36,20 @@ export const initializeAllocations = (firstCandidate: CandidateProps, secondCand
     return allocations;
 };
 
+
+// Calculate the total number of votes.
+export const calculateTotalVotes = (candidates: CandidateProps[]): number => {
+    // Initialize the total votes.
+    let totalVotes = 0;
+
+    // For each candidate.
+    candidates.forEach(candidate => {
+        // Add the candidate votes to the total.
+        totalVotes += candidate.votes;
+    });
+
+    // Return the total votes.
+    return totalVotes;
+};
+
+
