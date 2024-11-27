@@ -8,7 +8,7 @@
 <p align="center">
     <a href="https://www.repostatus.org/#concept"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Repository status"/></a>
     <a href="https://github.com/mihaiconstantin/lavot/releases"><img src="https://img.shields.io/github/v/release/mihaiconstantin/lavot?display_name=tag&sort=semver" alt="GitHub version"/></a>
-    <a href="https://hailavot.ro"><img src="https://img.shields.io/badge/live-website-brightgreen" alt="Website"/></a>
+    <a href="https://hailavot.ro"><img src="https://img.shields.io/badge/website-live-brightgreen" alt="Website"/></a>
 </p>
 <!-- badges: end -->
 
