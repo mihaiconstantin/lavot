@@ -262,7 +262,8 @@ header .header-logo-preposition {
     padding: 1.5rem;
 }
 
-.output-forecast {
+.output-forecast, .output-graphic {
+    font-size: 1rem;
     margin-bottom: 2rem;
     border: 1px solid #e9ecef;
     padding: 1.5rem;
@@ -270,7 +271,7 @@ header .header-logo-preposition {
     transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.output-forecast:hover {
+.output-forecast:hover, .output-graphic:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -284,6 +285,19 @@ header .header-logo-preposition {
     margin-top: 1rem;
 }
 
+.output-graphic {
+    padding: 1rem 0;
+}
+
+.output-information {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.output-information svg {
+    margin-top: -3px;
+    margin-right: 0.5rem;
+}
 
 /* #endregion */
 
