@@ -12,7 +12,7 @@ const Header: React.FC = () => {
                     <span className="logo-letter cursive flag-red">T</span>
                 </h1>
                 <div className="header-subtitle display-6 fw-lighter">
-                    Romania <span className="flag-animation">Mai Poate</span> Decide
+                    România <span className="flag-animation">Mai Poate</span> Decide
                 </div>
             </div>
         </header>
