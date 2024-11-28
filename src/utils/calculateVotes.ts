@@ -12,6 +12,9 @@ export const initializeAllocations = (firstCandidate: CandidateProps, secondCand
     // Initialize the allocations array.
     const allocations: InputProps[] = [];
 
+    // Record the IDs to allocate to.
+    const qualifiedIDs: string[] = qualifiedCandidates.map(c => c.id);
+
     // For each qualified candidate.
     qualifiedCandidates.forEach(candidate => {
         // Add the initial allocation for the candidate.
@@ -25,10 +28,13 @@ export const initializeAllocations = (firstCandidate: CandidateProps, secondCand
 
     // For each dropout candidate.
     dropoutCandidates.forEach(candidate => {
+        // Randomly sample which qualified candidate id to use.
+        const qualifiedCandidateId = qualifiedIDs[Math.floor(Math.random() * qualifiedIDs.length)];
+
         // Add the initial allocation for the candidate.
         allocations.push({
             from: candidate.id,
-            to: secondCandidate.id,
+            to: qualifiedCandidateId,
             percentage: 50,
             proportion: 0.5
         });
