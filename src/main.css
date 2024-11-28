@@ -210,8 +210,16 @@ header .header-logo-preposition {
     transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.candidate:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+@media (max-width: 991px) {
+    .candidate {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+}
+
+@media (min-width: 992px) {
+    .candidate:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
 }
 
 .candidate:last-of-type {
@@ -268,10 +276,9 @@ header .header-logo-preposition {
     border: 1px solid #e9ecef;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.output-forecast:hover {
+.output-forecast {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -286,7 +293,7 @@ header .header-logo-preposition {
 }
 
 .output-graphic {
-    padding: 1rem 0;
+    padding: 1rem 0.4rem;
 }
 
 .output-information {
