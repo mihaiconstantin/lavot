@@ -4,12 +4,18 @@ import { newVotersAtom, votesAtom } from "../atoms/allocationAtoms";
 import { CandidateProps } from "../types/CandidateProps";
 import { formatNumber } from "../utils/formatNumbers";
 import { calculateNewVotes, calculateVotingPresence } from "../utils/calculateVotes";
-import { data } from "../data/data";
+import { Statistics } from "../types/Statistics";
 
 
-const Forecast: React.FC = () => {
+// Define the forecast properties interface.
+interface ForecastProps {
+    statistics: Statistics;
+}
+
+
+const Forecast: React.FC<ForecastProps> = ({ statistics }) => {
     // Get the statistics.
-    const { voters, votesRoundOne } = data.statistics;
+    const { voters, votesRoundOne } = statistics;
 
     // Get the global state of vote calculations.
     const [candidateTotals] = useAtom(votesAtom);

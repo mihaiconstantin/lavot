@@ -1,5 +1,6 @@
 import React from 'react';
 import Forecast from './Forecast';
+import { data } from "../data/data";
 
 
 const Output: React.FC = () => {
@@ -16,7 +17,10 @@ const Output: React.FC = () => {
                     </div>
                 </div>
 
-                <Forecast />
+                <Forecast
+                    statistics={data.statistics}
+                />
+
             </div>
         </section>
     );
