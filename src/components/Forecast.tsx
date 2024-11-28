@@ -85,10 +85,10 @@ const Forecast: React.FC<ForecastProps> = ({ statistics }) => {
                             Voturi noi acordate în turul doi: {formatNumber(newVotes)}
                         </div>
                         <div className="new-votes-second-round">
-                            Voturi din turul doi realocate către <span className="name">{firstCandidate.name}</span> : {formatNumber(secondRoundFirstCandidate.votes)} ({secondRoundFirstCandidate.percentage.toFixed(2)}%)
+                            Voturi noi din turul doi alocate către <span className="name">{firstCandidate.name}</span> : {formatNumber(secondRoundFirstCandidate.votes)} ({secondRoundFirstCandidate.percentage.toFixed(2)}%)
                         </div>
                         <div>
-                            Voturi din turul doi realocate către <span className="name">{secondCandidate.name}</span> : {formatNumber(secondRoundSecondCandidate.votes)} ({secondRoundSecondCandidate.percentage.toFixed(2)}%)
+                            Voturi noi din turul doi alocate către <span className="name">{secondCandidate.name}</span> : {formatNumber(secondRoundSecondCandidate.votes)} ({secondRoundSecondCandidate.percentage.toFixed(2)}%)
                         </div>
                     </div>
                 </div>

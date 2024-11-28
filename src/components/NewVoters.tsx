@@ -111,7 +111,7 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
 
             <div className="col-12 col-lg-3 candidate-slider">
                 <div className="form-group">
-                    <label htmlFor="people-allocation">Cate din noile voturi vor fi realocate?</label>
+                    <label htmlFor="people-allocation">Cate din noile voturi vor fi alocate?</label>
                     <input
                         type="range"
                         className="form-range"
@@ -126,7 +126,7 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
             </div>
 
             <div className="col-12 col-lg-3 candidate-receiver">
-                <div className="question">Către cine vor fi realocate voturile?</div>
+                <div className="question">Către cine vor fi alocate voturile?</div>
                 <div className="form-check">
                     <input
                         className="form-check-input"
