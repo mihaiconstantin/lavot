@@ -98,7 +98,7 @@ const DropoutCandidate: React.FC<CandidateProps> = ({ id, name, votes, percentag
                 </div>
             </div>
 
-            <div className="col-12 col-lg-3 candidate-receiver">
+            <div className="col-12 col-lg-4 candidate-receiver">
                 <div className="question">
                     Către cine vor fi realocate voturile?
                 </div>

@@ -125,7 +125,7 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
                 </div>
             </div>
 
-            <div className="col-12 col-lg-3 candidate-receiver">
+            <div className="col-12 col-lg-4 candidate-receiver">
                 <div className="question">Către cine vor fi alocate voturile?</div>
                 <div className="form-check">
                     <input
