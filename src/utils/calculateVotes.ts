@@ -140,7 +140,7 @@ export const calculateVotingPresence = (voters: number, votes: number): number =
     presence = presence * 100;
 
     // Return as a percentage.
-    return (presence);
+    return presence;
 };
 
 
@@ -153,5 +153,5 @@ export const calculateNewVotes = (voters: number, votesRoundOne: number, presenc
     const votes = voters * presence - votesRoundOne;
 
     // Return the votes.
-    return (votes);
+    return votes;
 };
