@@ -15,6 +15,7 @@ export const allocationsAtom = atom<InputProps[]>(
         data.dropouts
 ));
 
+
 // Define the calculation derived atom with the initial value.
 export const votesAtom = atom<CandidateProps[]>(
     // Calculate the votes based on the initial allocations.
@@ -23,6 +24,7 @@ export const votesAtom = atom<CandidateProps[]>(
         get(allocationsAtom), get(newVotersAtom)
     )
 );
+
 
 // Define the new votes atom with the initial value.
 export const newVotersAtom = atom<NewVoters>(

@@ -8,6 +8,7 @@ import { formatNumber, roundToTwoDecimals } from "../utils/formatNumbers";
 import { useEffect } from "react";
 
 
+// Define the new voters properties interface.
 interface NewVotersProps {
     statistics: Statistics;
     firstCandidate: CandidateProps;
