@@ -4,6 +4,8 @@ import { data } from "../data/data";
 import { calculateVotes, initializeAllocations, initializeNewVoters } from "../utils/calculateVotes";
 import { CandidateProps } from "../types/CandidateProps";
 import { NewVoters } from "../types/NewVoters";
+import { SankeyData } from "../types/SankeyData";
+import { prepareSankeyData } from "../utils/prepareData";
 
 
 // Define the votes atom with initial allocations.
@@ -31,3 +33,13 @@ export const newVotersAtom = atom<NewVoters>(
     // Initialize the new votes based on the data.
     initializeNewVoters(data.second, data.statistics)
 )
+
+
+// Define the new derived Sankey data atom with the initial value.
+export const sankeyDataAtom = atom<SankeyData[]>(
+    // Initialize the Sankey data based on the data and other atoms.
+    (get) => prepareSankeyData(
+        [data.first, data.second, ...data.dropouts], data.statistics,
+        get(allocationsAtom), get(votesAtom), get(newVotersAtom)
+    )
+);
