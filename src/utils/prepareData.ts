@@ -145,3 +145,16 @@ export const prepareSankeyData = (candidates: CandidateProps[], statistics: Stat
     return sankeyData;
 };
 
+
+// Add helper function to convert the Sankey data to an array.
+export const convertSankeyDataToArray = (data: SankeyData[]): (string | number)[][] => {
+    // Map each SankeyData object to an array of its values.
+    const dataRows: (string | number)[][] = data.map(item => [
+        item.from,
+        item.to,
+        item.weight
+    ]);
+
+    // Return the data rows.
+    return dataRows;
+};
