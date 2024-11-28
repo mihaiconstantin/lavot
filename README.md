@@ -20,6 +20,10 @@ will inspire at least one person to go out and vote.
 
 ## Installation
 
+You can find the app live at
+[lavot.mihaiconstantin.com](https://lavot.mihaiconstantin.com). Alternatively,
+you can run the app locally by following the instructions below.
+
 ```bash
 # Clone the repository.
 git clone https://github.com/mihaiconstantin/lavot.git
@@ -33,6 +37,20 @@ pnpm install
 # Start the development server.
 pnpm dev
 ```
+
+## Showcase
+
+Controls for redistributing votes.
+
+<p align="center">
+    <img src="public/images/lavot-showcase-01.png" alt="La VOT showcase"/>
+</p>
+
+Results of the votes redistribution.
+
+<p align="center">
+    <img src="public/images/lavot-showcase-02.png" alt="La VOT showcase"/>
+</p>
 
 ## Contributing
 - Any contributions are welcome and greatly appreciated. Please open a [pull
