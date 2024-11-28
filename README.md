@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://lavot.mihaiconstantin.com">
-        <img width="350px" src="public/images/logo-lavot.png" alt="La VOT"/>
+        <img width="350px" src="public/images/lavot-logo-medium.png" alt="La VOT"/>
     </a>
 </p>
 
