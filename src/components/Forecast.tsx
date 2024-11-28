@@ -58,7 +58,7 @@ const Forecast: React.FC<ForecastProps> = ({ statistics }) => {
 
 
     return (
-        <div className="row control output-forecast justify-content-center">
+        <div className="row control output-forecast justify-content-center lead">
             <div className="col-12">
 
                 <div className="row text-muted">
