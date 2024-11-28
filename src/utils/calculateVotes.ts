@@ -150,7 +150,10 @@ export const calculateNewVotes = (voters: number, votesRoundOne: number, presenc
     presence = presence / 100;
 
     // Calculate the votes.
-    const votes = voters * presence - votesRoundOne;
+    let votes = voters * presence - votesRoundOne;
+
+    // Round the votes.
+    votes = Math.round(votes);
 
     // Return the votes.
     return votes;
