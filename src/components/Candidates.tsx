@@ -45,7 +45,7 @@ const Candidates: React.FC = () => {
                 {/* Render the summary. */}
                 <Summary>
                     Pe baza celor mai recente date de la ROAEP, <span className="fw-bold text-success">{formatNumber(votesRoundOne)}</span> de voturi au fost valide în primul tur din <span className="fw-bold text-danger">{formatNumber(voters)}</span> câte erau eligibile, indicând astfel o prezență la vot de <span className="fw-bold text-muted">{presenceRoundOne.toFixed(2)}%</span>.
-                    În urma acestui vot, candidații <span className="name text-muted">{first.name}</span> și <span className="name flag-blue flag-animation">{second.name}</span> vor fi selectați pentru turul doi.
+                    În urma acestui vot, candidații <span className="name">{first.name}</span> și <span className="name">{second.name}</span> vor fi selectați pentru turul doi.
                     Folosind câmpurile de mai jos, alege cum preconizezi că se vor <span className="fst-italic">redistribui</span> voturile candidaților pentru turul doi, iar în josul paginii vei găsi rezultatul alegerilor tale.
                 </Summary>
 
