@@ -81,9 +81,9 @@ const Candidates: React.FC = () => {
                 <SectionSubtitle subtitle="Votanți Noi" />
 
                 <Summary>
-                    În primul tur, prezența la vot a fost de <span className="fw-bold text-muted">{presenceRoundOne.toFixed(2)}%</span>.
-                    Estimarea de mai jos pleacă de la presupunerea că <span className="fw-bold text-muted">{(presenceRoundOne + 0.01).toFixed(2)}%</span> si <span className="fw-bold text-muted">90%</span> de personae vor vota și în turul doi.
-                    Estimarea ta curentă privind prezenta la vot din turul doi este de <span className="fw-bold flag-animation">{ newVoters.presence.toFixed(2) }%</span>.
+                    În primul tur, prezența la vot a fost de <span className="fw-bold text-muted">{presenceRoundOne.toFixed(2)}%</span>, adică <span className="fw-bold text-success">{formatNumber(votesRoundOne)}</span> voturi valide din <span className="fw-bold text-danger">{formatNumber(voters)}</span> votanți eligibili.
+                    Estimarea de mai jos pleacă de la presupunerea că în turul doi vor vota cel puțin la fel de multe persoane precum în primul tur.
+                    Estimarea ta curentă privind prezenta la vot din turul doi este de <span className="fw-bold flag-animation">{newVoters.presence.toFixed(2)}%</span>.
                 </Summary>
 
                 {/* Render new voters. */}

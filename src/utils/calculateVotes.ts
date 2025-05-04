@@ -110,12 +110,9 @@ export const calculateVotes = (statistics: Statistics, firstCandidate: Candidate
     firstCandidateTotal.votes = Math.round(firstCandidateTotal.votes);
     secondCandidateTotal.votes = Math.round(secondCandidateTotal.votes);
 
-    // Calculate the total votes.
-    const totalVotes = calculateTotalVotes(candidates);
-
     // Calculate the percentages.
-    firstCandidateTotal.percentage = (firstCandidateTotal.votes / totalVotes) * 100;
-    secondCandidateTotal.percentage = (secondCandidateTotal.votes / totalVotes) * 100;
+    firstCandidateTotal.percentage = (firstCandidateTotal.votes / statistics.voters) * 100;
+    secondCandidateTotal.percentage = (secondCandidateTotal.votes / statistics.voters) * 100;
 
     // Return the candidate array with totals.
     return [firstCandidateTotal, secondCandidateTotal];
