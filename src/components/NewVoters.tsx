@@ -24,18 +24,12 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
     const [ newVoters ] = useAtom(newVotersAtom);
 
     // Calculate the voting presence in the first round.
-    let presenceRoundOne = roundToTwoDecimals(calculateVotingPresence(statistics.voters, statistics.votesRoundOne));
-
-    // Decide the minimum additional voters for the second round.
-    const additionalVoters = 0.01
-
-    // Increment the presence by 0.1%.
-    presenceRoundOne += additionalVoters;
+    const presenceRoundOne = calculateVotingPresence(statistics.voters, statistics.votesRoundOne);
 
     // Update the voters at mount time to keep the interface consistent.
     useEffect(() => {
         // Update the new voters based on the new value.
-        updateNewVoters(newVoters.to, roundToTwoDecimals(newVoters.presence + additionalVoters), newVoters.percentage);
+        updateNewVoters(newVoters.to, newVoters.presence, newVoters.percentage);
     }, []);
 
     // Calculate the new votes in the second round.
@@ -46,10 +40,12 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
         // Extract the new value from the event.
         const newPresence = parseFloat(e.target.value);
 
-        // Update the new voters based on the new value.
-        updateNewVoters(newVoters.to, newPresence, newVoters.percentage);
-    };
+        // Adjust the presence value never be lower than the first round (i.e., due to slider steps).
+        const newPercentageAdjusted = Math.max(presenceRoundOne, newPresence);
 
+        // Update the new voters based on the new value.
+        updateNewVoters(newVoters.to, newPercentageAdjusted, newVoters.percentage);
+    };
 
     // Define the change handler for the vote reallocation slider.
     const handleReallocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -101,8 +97,8 @@ const NewVoters: React.FC<NewVotersProps> = ({ statistics, firstCandidate, secon
                         className="form-range"
                         id="round-two-presence"
                         step="0.01"
-                        min={presenceRoundOne}
-                        max="90"
+                        min={roundToTwoDecimals(presenceRoundOne)}
+                        max="100"
                         value={newVoters.presence}
                         onChange={handlePresenceChange}
                     />
