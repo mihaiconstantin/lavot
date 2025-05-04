@@ -13,10 +13,10 @@
 <!-- badges: end -->
 
 **La VOT** is a [`React`](https://react.dev/) app (i.e., technological pun
-intended) where you can redistribute votes from the first round of the 2024
-Romanian presidential elections to the candidates who made it to the second
-round. The stakes are high, and the price? Democracy. Our hope is that this app
-will inspire at least one person to go out and vote.
+intended) where you can redistribute votes from the first round of the most
+recent Romanian presidential elections to the candidates who made it to the
+second round. The stakes are high, and the price? Democracy. Our hope is that
+this app will inspire at least one person to go out and vote.
 
 ## Installation
 
