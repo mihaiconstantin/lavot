@@ -63,13 +63,13 @@ const Forecast: React.FC<ForecastProps> = ({ statistics }) => {
 
                 <div className="row text-muted">
                     <div className="col-12">
-                        Total voturi <span className="name">{firstCandidate.name}</span> : {formatNumber(firstCandidate.votes)} <span className="votes-added">({ firstCandidate.percentage.toFixed(2) }%)</span>
+                        Total voturi <span className="name">{firstCandidate.name}</span> : <span className="fw-bold flag-blue">{formatNumber(firstCandidate.votes)}</span> <span className="votes-added">({ firstCandidate.percentage.toFixed(2) }%)</span>
                     </div>
                 </div>
 
                 <div className="row text-muted">
                     <div className="col-12">
-                        Total voturi <span className="name">{secondCandidate.name}</span> : <span className="flag-animation">{formatNumber(secondCandidate.votes)}</span> <span className="votes-added">({ secondCandidate.percentage.toFixed(2) }%)</span>
+                        Total voturi <span className="name">{secondCandidate.name}</span> : <span className="fw-bold flag-blue">{formatNumber(secondCandidate.votes)}</span> <span className="votes-added">({ secondCandidate.percentage.toFixed(2) }%)</span>
                     </div>
                 </div>
 
