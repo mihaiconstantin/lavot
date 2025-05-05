@@ -1,93 +1,75 @@
-// The data from `ROAEP` as of November 25, 2024.
+// The data from `ROAEP` as of May 5th, 2025.
 export const data = {
     first: {
         id: "1",
-        name: "Călin Georgescu",
-        votes: 2120401,
-        percentage: 22.94,
+        name: "George-Nicolae Simion",
+        votes: 3862405,
+        percentage: 40.96
     },
     second: {
         id: "2",
-        name: "Elena-Valerica Lasconi",
-        votes: 1772500,
-        percentage: 19.18,
+        name: "Nicușor-Daniel Dan",
+        votes: 1979711,
+        percentage: 20.99
     },
     statistics: {
-        voters: 18008480,
-        votesRoundOne: 9242186,
+        voters: 17988031,
+        votesRoundOne: 9429817
     },
     dropouts: [
         {
             id: "3",
-            name: "Ion-Marcel Ciolacu",
-            votes: 1769760,
-            percentage: 19.15,
+            name: "George-Crin-Laurențiu Antonescu",
+            votes: 1892925,
+            percentage: 20.07
         },
         {
             id: "4",
-            name: "George-Nicolae Simion",
-            votes: 1281325,
-            percentage: 13.86,
+            name: "Victor-Viorel Ponta",
+            votes: 1230144,
+            percentage: 13.05
         },
         {
             id: "5",
-            name: "Nicolae-Ionel Ciucă",
-            votes: 811952,
-            percentage: 8.79,
+            name: "Elena-Valerica Lasconi",
+            votes: 252708,
+            percentage: 2.68
         },
         {
             id: "6",
-            name: "Mircea-Dan Geoană",
-            votes: 583898,
-            percentage: 6.32,
+            name: "Marcela-Lavinia Șandru",
+            votes: 60682,
+            percentage: 0.64
         },
         {
             id: "7",
-            name: "Hunor Kelemen",
-            votes: 416353,
-            percentage: 4.5,
+            name: "Petru-Daniel Funeriu",
+            votes: 49602,
+            percentage: 0.53
         },
         {
             id: "8",
-            name: "Cristian Diaconescu",
-            votes: 286842,
-            percentage: 3.1,
+            name: "Cristian-Vasile Terheș",
+            votes: 36442,
+            percentage: 0.39
         },
         {
             id: "9",
-            name: "Cristian-Vasile Terheș",
-            votes: 95782,
-            percentage: 1.04,
+            name: "Sebastian-Constantin Popescu",
+            votes: 25993,
+            percentage: 0.28
         },
         {
             id: "10",
-            name: "Ana Birchall",
-            votes: 42853,
-            percentage: 0.46,
+            name: "John-Ion Banu-Muscel",
+            votes: 22020,
+            percentage: 0.23
         },
         {
             id: "11",
-            name: "Ludovic Orban",
-            votes: 20089,
-            percentage: 0.22,
-        },
-        {
-            id: "12",
-            name: "Sebastian-Constantin Popescu",
-            votes: 14683,
-            percentage: 0.16,
-        },
-        {
-            id: "13",
-            name: "Alexandra-Beatrice Bertalan-Păcuraru",
-            votes: 14502,
-            percentage: 0.16,
-        },
-        {
-            id: "14",
             name: "Silviu Predoiu",
-            votes: 11246,
-            percentage: 0.12,
+            votes: 17185,
+            percentage: 0.18
         }
     ]
 };
